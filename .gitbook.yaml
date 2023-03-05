@@ -1,0 +1,5 @@
+root: ./docs/
+
+structure:  
+    chapter1: ./docs/Chapter1.md
+    chapter2: ./docs/Chapter2.md
