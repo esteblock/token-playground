@@ -1,4 +1,7 @@
 # token-playground
+
+Read the Tutorial in https://token-playground.gitbook.io/
+
 Token playground to learn how create and interact with Soroban and Stellar Classic Assets using Soroban 
 
 
