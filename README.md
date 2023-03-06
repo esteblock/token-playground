@@ -12,7 +12,9 @@ We'll use `standalone`, but you can also use `futurenet`
 
 ## Issue an Asset:
 1. Set yout keys and asset code in `settings.json`
-```
-docker exec soroban-preview node src/issueAsset.js 
 
 ```
+node src/issueAsset.js
+```
+TODO: make this script run in the soroban-preview docker container
+`docker exec soroban-preview node src/issueAsset.js `. Check issue [#3](https://github.com/esteblock/token-playground/issues/3)
