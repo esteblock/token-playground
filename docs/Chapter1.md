@@ -1,8 +1,5 @@
-# Token Playground Chapter 1
+# Token Playground Chapter 1: Issue an Asset
 
-This is chapter 1
-```javascript  
-const a="Ny name"
-
+1. Set yout keys and asset code in `settings.json`
 ```
-That code is wrong
+```
