@@ -9,7 +9,10 @@ We'll use `standalone`, but you can also use `futurenet`
 ```
 ./quickstart.sh standalone
 ```
-
+## Fund with friendbot
+```
+node src/friendbot.js
+```
 ## Issue an Asset:
 1. Set yout keys and asset code in `settings.json`
 
@@ -23,4 +26,10 @@ TODO: make this script run in the soroban-preview docker container
 ```
 node src/getInfo.js
 
+```
+
+## Wrap the token
+```
+
+docker exec soroban-preview-7 ./src/wrap.sh standalone using_docker
 ```
