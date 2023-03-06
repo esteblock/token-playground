@@ -1,12 +1,8 @@
 import StellarSdk from "stellar-sdk";
-import fetch from 'node-fetch'
 
 import { sendPaymentFromIssuer } from "./sendPaymentFromIssuer.js"
 import { trustAsset } from "./trustAsset.js";
 import settings from "../settings.json"  assert { type: "json" };
-
-await fetch( settings.horizonUrl+'/friendbot?addr='+settings.issuerPublic, {method: 'POST'})
-await fetch( settings.horizonUrl+'/friendbot?addr='+settings.receiverPublic, {method: 'POST'})
 
 const args = process.argv;
 const asset_code = args[2] || settings.assetCode;
