@@ -18,3 +18,9 @@ node src/issueAsset.js
 ```
 TODO: make this script run in the soroban-preview docker container
 `docker exec soroban-preview node src/issueAsset.js `. Check issue [#3](https://github.com/esteblock/token-playground/issues/3)
+
+## Get info about the token
+```
+node src/getInfo.js
+
+```
