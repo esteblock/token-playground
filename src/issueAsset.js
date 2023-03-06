@@ -5,15 +5,8 @@ import { sendPaymentFromIssuer } from "./sendPaymentFromIssuer.js"
 import { trustAsset } from "./trustAsset.js";
 import settings from "../settings.json"  assert { type: "json" };
 
-
-
 await fetch( settings.horizonUrl+'/friendbot?addr='+settings.issuerPublic, {method: 'POST'})
 await fetch( settings.horizonUrl+'/friendbot?addr='+settings.receiverPublic, {method: 'POST'})
-
-
-// fetch(settings.horizonUrl+'/friendbot?addr='+settings.receiverPublic).then(response => response.json())
-// .then(response => console.log(JSON.stringify(response)))
-// await fetch(settings.horizonUrl+'/friendbot?addr='+settings.issuerPublic)
 
 const args = process.argv;
 const asset_code = args[2] || settings.assetCode;
@@ -63,44 +56,3 @@ catch(error){
   console.error("Error! while sending payment from issuer: ", error)
 }
 
-
-// server
-//   .loadAccount(receivingKeys.publicKey())
-//   .then(function (receiver) {
-//     console.log("1. First, the receiving account must trust the asset")
-//     trustAsset(server,
-//       networkPassphrase, 
-//       receiver, 
-//       receivingKeys, 
-//       asset, 
-//       limit)
-    
-//   })
-//   .then( function(submitResult) {
-//     console.log("Tx has been submitted")
-//     console.log("Tx result: ", submitResult)}
-//     )
-
-//   // Second, the issuing account actually sends a payment using the asset
-//   .then(function () {
-//     console.log("Loading the issuing account keys")
-//     return server.loadAccount(issuingKeys.publicKey());
-//   })
-//   .then(function (issuer) {
-//     console.log("Second, the issuing account actually sends a payment using the asset")
-//     sendPaymentFromIssuer(
-//           server,
-//           networkPassphrase,
-//           issuer,
-//           issuingKeys,
-//           asset,
-//           receivingKeys.publicKey(),
-//           amount)}
-//           )
-//   .then(function(submitResult) {
-//     console.log("Tx has been submitted")
-//     console.log("Tx result: ", submitResult)}
-//     )
-//   .catch(function (error) {
-//     console.error("Error!", error);
-//   });
