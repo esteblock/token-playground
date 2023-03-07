@@ -36,3 +36,10 @@ node src/getInfo.js
 
 docker exec soroban-preview-7 ./src/wrap.sh standalone using_docker
 ```
+
+
+## Mint the token
+```
+
+docker exec soroban-preview-7 ./src/mint.sh standalone using_docker
+```
