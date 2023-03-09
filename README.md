@@ -43,3 +43,8 @@ docker exec soroban-preview-7 ./src/wrap.sh standalone using_docker
 
 docker exec soroban-preview-7 ./src/mint.sh standalone using_docker
 ```
+
+## Get all contract id from issuer
+```
+node  src/getAllAssetClassicContractIdFromIssuer.js
+```
