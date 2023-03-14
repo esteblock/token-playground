@@ -6,6 +6,7 @@ echo "Setting Variables"
 ASSET_CODE=$([[ ! -z "$3" ]] && echo  $3 ||  cat ./settings.json | jq -r '.assetCode' )
 DESTINATION_ADDRESS=$(cat ./settings.json | jq  -r '.receiverPublic' )
 TOKEN_ADMIN_SECRET=$(cat ./settings.json | jq -r '.issuerSecret' )
+TOKEN_ADMIN_ADDRESS=$(cat ./settings.json | jq -r '.issuerPublic' )
 
 # If soroban-cli is called inside the soroban-preview docker containter,
 # it can call the stellar standalone container just using its name "stellar"
@@ -37,3 +38,13 @@ futurenet)
   exit 1
   ;;
 esac
+
+
+  echo Add the $NETWORK network to cli client
+  soroban config network add "$NETWORK" \
+    --rpc-url "$SOROBAN_RPC_URL" \
+    --network-passphrase "$SOROBAN_NETWORK_PASSPHRASE"
+
+
+echo "---"
+echo "---"

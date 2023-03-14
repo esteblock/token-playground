@@ -6,7 +6,13 @@ NETWORK="$1"
 ARGS="--network $NETWORK --identity token-admin"
 TOKEN_ID=$(cat .soroban/token_id)
 
-echo "Minting 5 units of $ASSET_CODE"
+echo "Set the soroban identity as the token-admin"
+soroban config identity address token-admin
+echo "---"
+
+echo "Mint 5 units of $ASSET_CODE"
+echo "Minting to: $DESTINATION_ADDRESS"
+
 soroban contract invoke \
   $ARGS \
   --wasm src/contracts/token/soroban_token_spec.wasm \
