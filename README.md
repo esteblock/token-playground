@@ -43,8 +43,28 @@ docker exec soroban-preview-7 ./src/wrap.sh standalone using_docker
 
 docker exec soroban-preview-7 ./src/mint.sh standalone using_docker
 ```
+In a simpler version:
+
+```
+
+docker exec soroban-preview-7 ./src/mint_with_just_token_id.sh standalone using_docker
+```
 
 ## Get all contract id from issuer
 ```
-node  src/getAllAssetClassicContractIdFromIssuer.js
+docker exec soroban-preview-7 node  src/getAllAssetClassicContractIdFromIssuer.js
+```
+
+## Try to wrap the asset from another address
+What happens if another user wants to wrap another's person asset?
+In order to try this we need to issue a new asset. 
+This is beacause we have already wrapped our asset. Otherwise it will fail anyways.
+
+In this example our new asset code will be "TOKENNEW"
+```
+docker exec soroban-preview-7 node src/issueAsset.js TOKENNEW
+docker exec soroban-preview-7 node src/getInfo.js TOKENNEW
+docker exec soroban-preview-7 ./src/wrap_other.sh standalone using_docker TOKENNEW
+docker exec soroban-preview-7 ./src/mint_with_just_token_id.sh standalone using_docker
+docker exec soroban-preview-7 node src/getInfo.js TOKENNEW
 ```
