@@ -68,3 +68,13 @@ docker exec soroban-preview-7 ./src/wrap_other.sh standalone using_docker TOKENN
 docker exec soroban-preview-7 ./src/mint_with_just_token_id.sh standalone using_docker
 docker exec soroban-preview-7 node src/getInfo.js TOKENNEW
 ```
+
+## Get contract information from the soroban contract
+Name, symbol, decimals and balance of receiver.
+Should be the sum of issued in Classic and in Soroban
+```
+docker exec soroban-preview-7 ./src/get_token_info.sh standalone using_docker
+```
+
+
+
