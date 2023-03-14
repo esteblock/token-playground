@@ -5,9 +5,9 @@ set -e
 NETWORK="$1"
 IS_USING_DOCKER="$2"
 
-ASSET_CODE=$([[ ! -z "$3" ]] && echo  $3 ||  cat ../settings.json | jq -r '.assetCode' )
-DESTINATION_ADDRESS=$(cat ../settings.json | jq  -r '.receiverPublic' )
-TOKEN_ADMIN_SECRET=$(cat ../settings.json | jq -r '.issuerSecret' )
+ASSET_CODE=$([[ ! -z "$3" ]] && echo  $3 ||  cat ./settings.json | jq -r '.assetCode' )
+DESTINATION_ADDRESS=$(cat ./settings.json | jq  -r '.receiverPublic' )
+TOKEN_ADMIN_SECRET=$(cat ./settings.json | jq -r '.issuerSecret' )
 
 
 echo "Using asset code $ASSET_CODE"
