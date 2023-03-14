@@ -14,20 +14,20 @@ We'll use `standalone`, but you can also use `futurenet`
 ```
 ## Fund with friendbot
 ```
-node src/friendbot.js
+docker exec soroban-preview-7 node src/friendbot.js
 ```
 ## Issue an Asset:
 1. Set yout keys and asset code in `settings.json`
 
 ```
-node src/issueAsset.js
+docker exec soroban-preview-7 node src/issueAsset.js
 ```
 TODO: make this script run in the soroban-preview docker container
 `docker exec soroban-preview node src/issueAsset.js `. Check issue [#3](https://github.com/esteblock/token-playground/issues/3)
 
 ## Get info about the token
 ```
-node src/getInfo.js
+docker exec soroban-preview-7 node src/getInfo.js
 
 ```
 
