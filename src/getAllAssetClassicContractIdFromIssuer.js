@@ -1,3 +1,4 @@
+import fetch from 'node-fetch'
 import StellarSdk from "stellar-sdk";
 import * as SorobanClient from "soroban-client" // // import * as SorobanClient from "stellar-sdk"
 import settings from "../settings.json"  assert { type: "json" };
