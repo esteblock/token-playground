@@ -3,7 +3,7 @@
     "receiverSecret": "SBFJKSFA5YK2SUAVVSMEKDA44MYCBFSNNAORJSO7J437HJWU6G7SGAVF",
     "receiverPublic": "GDGYEYETZ2AWW3M3XUEAZN7LZPCL4BTKROEDE5LLOU6GTJRNG4FX3IEQ",
     "assetCode": "MYASSETCODE",
-    "horizonUrl": "http://localhost:8000",
+    "horizonUrl": "http://stellar:8000",
     "networkPassphrase": "Standalone Network ; February 2017",
     "amount": "5",
     "limit": "1000"}
