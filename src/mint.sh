@@ -54,6 +54,7 @@ ARGS="--network $NETWORK --identity token-admin"
 TOKEN_ID=$(cat .soroban/token_id)
 
 echo Build the sac contract
+cd src
 make build
 
 echo Deploy the sac contract
@@ -61,6 +62,8 @@ SAC_ID="$(
   soroban contract deploy $ARGS \
     --wasm target/wasm32-unknown-unknown/release/soroban_sac_contract.wasm
 )"
+cd ..
+
 echo "$SAC_ID" > .soroban/sac_id
 
 echo "Contract deployed succesfully with ID: $SAC_ID"
@@ -70,7 +73,7 @@ echo "Mint by transfer from issuer account using the sac contract"
 
 soroban contract invoke \
   $ARGS \
-  --wasm target/wasm32-unknown-unknown/release/soroban_sac_contract.wasm \
+  --wasm src/target/wasm32-unknown-unknown/release/soroban_sac_contract.wasm \
   --id "$SAC_ID" \
   --fn transfer -- \
   --user "$TOKEN_ADMIN_ADDRESS" \
