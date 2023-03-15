@@ -76,5 +76,14 @@ Should be the sum of issued in Classic and in Soroban
 docker exec soroban-preview-7 ./src/get_token_info.sh standalone using_docker
 ```
 
+## Send total assets from receiver
+Receiver has received assets both in classic and in soroban
+If we ask to the wrapped asset contract it's balance, it does shows the sum of both minted in classic and soroban.
+Can it send that total amount to a third party inside Soroban?
+
+TODO:    0: "trustline missing"
+```
+ docker exec soroban-preview-7 ./src/send_to_third.sh standalone using_docker
+```
 
 
