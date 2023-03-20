@@ -21,6 +21,3 @@ success
 ```
 
 The last line in the previous sample corrspond to the contract id, a 32-byte byte arrays, represented by BytesN<32> 
-
-
-

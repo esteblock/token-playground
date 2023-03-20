@@ -1,1 +1,0 @@
-# Token Playground Chapter 6 : Wrap a token from Stellar Classic to Soroban.
