@@ -1,0 +1,1 @@
+# Token Playground Chapter 10. Use all user balance inside Soroban (balance from Classic & Soroban)
