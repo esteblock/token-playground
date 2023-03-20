@@ -13,17 +13,17 @@ We have developed a **token playground** to explain how Stellar assets can be ma
 
 * [Chapter 1: Introduction & Motivation.](1_introduction-and-motivation.md)    
 
-* [Chapter 2 : Basic Concepts](Basic-concepts.md) 
+* [Chapter 2 : Basic Concepts](2_basic_concepts.md) 
 
-* [Chapter 3 : Environment preparation](Environment-preparation.md)
+* [Chapter 3 : Environment preparation](3_environment_preparation.md)
 
-* [Chapter 4 :  Issue and Mint Asset in Stellar.](Issue-and-mint-asset-in-stellar.md)
+* [Chapter 4 :  Issue and Mint Asset in Stellar.](4_issue_and_mint_asset_in_stellar.md)
 
-* [Chapter 5:  Get info about a token in Classic.](Get-info-about-token-in-stellar.md)
+* [Chapter 5:  Get info about a token in Classic.]((5_get_info_about_token_in_stellar.md)
 
-* [Chapter 6 : Wrap a token from Stellar Classic to Soroban.](6_wrap_a_token_from_classic_to_soroban.md)
+* [Chapter 6 : Wrap a token from Stellar Classic to Soroban.](6_wrap-a-token-from-classic-to-soroban.md)
 
-* [Chapter 7 : Mint from a wrapped token in Soroban.](7_mint-from-a-wrapped-token-in-soroban.md)
+* [Chapter 7 : Mint from a wrapped token in Soroban.](7_mint_from_a_wrapped_token_in_soroban.md)
 
 * [Chapter 8 : Get information from the wrapped token using the SAC contract.](8_get_info_from_wrapped_using_SAC.md)
 
