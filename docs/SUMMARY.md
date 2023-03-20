@@ -12,7 +12,7 @@
 
 * [5:  Get info about a token in Classic.](Get-info-about-token-in-stellar.md)
 
-* [6 : Wrap a token from Stellar Classic to Soroban.](6_wrap-a-token-from-classic-to-soroban.md)
+* [6 : Wrap a token from Stellar Classic to Soroban.](6_wrap_a_token_from_classic_to_soroban.md)
 
 * [7 : Mint from a wrapped token in Soroban.](7_mint-from-a-wrapped-token-in-soroban.md)
 
