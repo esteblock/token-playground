@@ -1,5 +1,7 @@
 # Token Playground Chapter 1: Introduction & Motivation.
 
+![Soroban Image](./img/soroban.png "Soroban Logo")
+
 Soroban, stellar's smart contract platform, is currently under development and  its officeal launchment is expected some time in 2023. One of the most important applications on any smart contracts platform is how manage tokens  (creation, mint, transfer, burn,  etc.. ). In the case of stellar this is specially  relevant due to the fact that it is one of the oldest blockchains and has a solution for manage tokens (stellar assets) beyond smart contract  builtin directly on chain. 
 
 Stellar allow manage tokens previous to soroban and custom soroban tokens. Here we will focus on Stellar Assets (clasic tokens).
