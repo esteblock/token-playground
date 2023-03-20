@@ -2,7 +2,7 @@
 
 ## Index
 
-* [1: Introduction & Motivation.](1_introduction-and-motivation.md)    
+* [1: Introduction & Motivation.](1_introduction_and_motivation.md)    
 
 * [2 : Basic Concepts](2_basic_concepts.md) 
 

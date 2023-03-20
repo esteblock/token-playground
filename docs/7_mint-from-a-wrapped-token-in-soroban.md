@@ -1,1 +1,0 @@
-# Token Playground Chapter 7 : Mint from a wrapped token in Soroban.

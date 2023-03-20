@@ -11,7 +11,7 @@ Soroban provides a mechanism to **wrap a (classic) Stellar asset in a smart cont
 We have developed a **token playground** to explain how Stellar assets can be managed from a Soroban smart contract. Please check our Playground's Chapters:
 
 
-* [Chapter 1: Introduction & Motivation.](1_introduction-and-motivation.md)    
+* [Chapter 1: Introduction & Motivation.](1_introduction_and_motivation.md)    
 
 * [Chapter 2 : Basic Concepts](2_basic_concepts.md) 
 
@@ -19,7 +19,7 @@ We have developed a **token playground** to explain how Stellar assets can be ma
 
 * [Chapter 4 :  Issue and Mint Asset in Stellar.](4_issue_and_mint_asset_in_stellar.md)
 
-* [Chapter 5:  Get info about a token in Classic.]((5_get_info_about_token_in_stellar.md)
+* [Chapter 5:  Get info about a token in Classic.](5_get_info_about_token_in_stellar.md)
 
 * [Chapter 6 : Wrap a token from Stellar Classic to Soroban.](6_wrap-a-token-from-classic-to-soroban.md)
 
