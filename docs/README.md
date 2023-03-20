@@ -21,7 +21,7 @@ We have developed a **token playground** to explain how Stellar assets can be ma
 
 * [Chapter 5:  Get info about a token in Classic.](Get-info-about-token-in-stellar.md)
 
-* [Chapter 6 : Wrap a token from Stellar Classic to Soroban.](6_wrap-a-token-from-classic-to-soroban.md)
+* [Chapter 6 : Wrap a token from Stellar Classic to Soroban.](6_wrap_a_token_from_classic_to_soroban.md)
 
 * [Chapter 7 : Mint from a wrapped token in Soroban.](7_mint-from-a-wrapped-token-in-soroban.md)
 
