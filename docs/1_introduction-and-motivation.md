@@ -4,7 +4,7 @@
 
 ## Soroban
 
-    Soroban, the Stellar smart contract platform, is currently under development, and its official launch is expected to be sometime in 2023.
+Soroban, the Stellar smart contract platform, is currently under development, and its official launch is expected to be sometime in 2023.
 
 ## Tokens in Soroban?
 
@@ -32,6 +32,8 @@ We have developed a **token playground** to explain how Stellar assets can be ma
 - Get all contract id's from an asset issuer
 - Use all user balance inside Soroban (Classic & Soroban)
 - Call the token contract from another contract
+
+
 
 
 
