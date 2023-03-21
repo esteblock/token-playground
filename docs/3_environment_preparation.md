@@ -9,6 +9,8 @@ To run Token playground script requires Docker isntalled in  your system . Next 
 -  Create two stellar address accounts (isser and destination address)
 -  Configure setting.json    
 
+Remember to **follow the code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/)
+
 
 ### 1.- Create a common docker network (only once) 
 
@@ -50,16 +52,28 @@ You can get and run stellar/quickstart by executing
 
 [quickstart.sh token playgroud](https://github.com/esteblock/token-playground/blob/main/quickstart.sh)
 
- Running succesfully  quickstar.sh wil launch the two docker containers, stellar node and    soroban preview
+ Running succesfully  quickstar.sh wil launch the two docker containers, stellar node and  soroban preview
 
 
 ### 4.- Create two addres accounts 
 
 You will need two stellar accounts to use token playground. The first one will be the issuer address, responsible of creating and issuing Stellar Assets,  the second one wiil be the destination address that has to create a trustline to the asset and  recieve amounts after issuing and mint. 
 
-You can use [stellar laboratory](https://laboratory.stellar.org/#account-creator?network=futurenet) to create the accounts.  Stellar account need to be funded wit at least 1 xlm  before  existe. Stellar provide the utlity friendbot that fund test networks like futurenet. 
+You can use [stellar laboratory](https://laboratory.stellar.org/#account-creator?network=futurenet) to create the accounts.  Stellar account need to be funded wit at least 1 xlm  before exists. Stellar provide the utlity friendbot that fund test networks like futurenet. 
 
-To fund and make account exist you can run:
+Here is an example about how to fund and make account exist:
+
+```
+TOKEN_ADMIN_ADDRESS="GCUA5RTRR4N4ILSMORG3XFXJZB6KRG4QB22Z45BUNO5LIBCOYYPZ6TPZ"
+FRIENDBOT_URL="http://stellar:8000/soroban/rpc/friendbot"
+
+#in case you're using futurenet  the friend bot  url should be http://stellar:8000/soroban/rpc/friendbot 
+
+curl --silent -X POST "FRIENDBOT_URL?addr=TOKEN_ADMIN_ADDRESS" >/dev/null
+
+```
+
+if you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-7` docker containter
 
 ```
 docker exec soroban-preview-7 node src/friendbot.js
@@ -71,24 +85,23 @@ You will need to set up the two address in [seetings.json](https://github.com/es
 
 ### 5.- Configure settings.js
 
-The file settings.json include a set of variables required to run the different scripts of the token playground. Here you have a sample: 
+The file [settings.json](https://github.com/esteblock/token-playground/blob/main/settings.json) include a set of variables required to run the different scripts of the token playground. Here you have a sample: 
 
 ```
 {   "issuerSecret": "SAHC723FQTC3MARBNUZLUFEIYI62VQDQH7FHLD2FGV6GROQQ7ULMHQGH",   
     "issuerPublic": "GAM5XOXRUWPMKENBGOEAKMLRQ4ENHLHDSU2L2J7TVJ34ZI7S6PHMYIGI",    
     "receiverSecret": "SBFJKSFA5YK2SUAVVSMEKDA44MYCBFSNNAORJSO7J437HJWU6G7SGAVF",
     "receiverPublic": "GDGYEYETZ2AWW3M3XUEAZN7LZPCL4BTKROEDE5LLOU6GTJRNG4FX3IEQ",
-    "thirdParty": "GBIZQR4QEOFHONNJAC72H2TYTMINJXNQ4J63VGCKT2X5VMJ4IQE3OWZM",
+    "thirdParty": "GBIZQR4QEOFHONNJAC72H2TYTMINJXNQ4J63VGCKT2X5VMJ4IQE3OWZM", 
     "assetCode": "MYASSETCODE", // assset code of the asset issued
     "horizonUrl": "http://stellar:8000", //url to request horizon api
     "networkPassphrase": "Standalone Network ; February 2017", 
     "amount": "5", //amount will be issued in asset creation
-    "limit": "1000"  //limit ammount  receive
+    "limit": "1000"  //limit ammount to  receive
 }
 ```
 
+___
 
-
-
-
+This Playgound has been developed by [@esteblock](https://github.com/esteblock/) in collaboration with [@marcos74](https://github.com/marcos74) from [@Dogstarcoin](https://github.com/Dogstarcoin)
 
