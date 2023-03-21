@@ -1,7 +1,7 @@
 # Token Playground Chapter 1: Introduction & Motivation.
 
-- Check this guide in `https://token-playground.gitbook.io/`
-- Edit this guide in it's repo: https://github.com/esteblock/token-playground/
+- Check this guide in [https://token-playground.gitbook.io/](https://token-playground.gitbook.io/)
+- Edit this guide in it's repo: [https://github.com/esteblock/token-playground/](https://github.com/esteblock/token-playground/)
 - Contribute to this guide in the [./docs folder](https://github.com/esteblock/token-playground/tree/main/docs) of the repo
 
 ![Soroban Image](./img/soroban.png "Soroban Logo")
