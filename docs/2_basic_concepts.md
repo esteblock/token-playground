@@ -1,4 +1,5 @@
 # Token Playground Chapter 2 : Basic Concepts
+
 - Check this guide in `https://token-playground.gitbook.io/`
 - Edit this guide in it's repo: https://github.com/esteblock/token-playground/
 - Contribute to this guide in the [./docs folder](https://github.com/esteblock/token-playground/tree/main/docs) of the repo
