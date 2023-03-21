@@ -41,3 +41,7 @@ We have developed this  **Soroban's Token Playground** to explain how Stellar as
 
 ## How to follow this Token Playground
 All the code explained in this guide can be found in the token's playground repo: https://github.com/esteblock/token-playground/. We will try to explain every line of code. If you find a mistake, or you want to collaborate, just open an Issue in the repo!
+
+___
+
+This Playgound has been developed by [@esteblock](https://github.com/esteblock/) in collaboration with [@marcos74](https://github.com/marcos74) from [@Dogstarcoin](https://github.com/Dogstarcoin)

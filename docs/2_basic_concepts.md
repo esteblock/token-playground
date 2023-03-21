@@ -65,3 +65,6 @@ In order to get  SAC  deployed we will use a function included in the [soroban t
 In the next two chapters we will prepare our enviroment in order to isse (classic) Stellar Assets and mint them as Stellar Asset Contracts in Soroban. Remain alert!
 
 
+___
+
+This Playgound has been developed by [@esteblock](https://github.com/esteblock/) in collaboration with [@marcos74](https://github.com/marcos74) from [@Dogstarcoin](https://github.com/Dogstarcoin)
