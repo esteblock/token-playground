@@ -1,11 +1,10 @@
 # Token Playground Chapter 3 : Environment preparation
 
-
-To run Token playground script requires Docker isntalled in  your system . Next we detail the steps to follow in order to isntall envirenoment. Basically you willl need: 
-
+To run Token playground script requires Docker installed in  your system. Next we detail the steps to follow in order to install envirenoment. Basically you will need: 
 
 -  Create a  docker common network 
--  Run docker container soroban-preview, that includes soroban cli, rus 
+-  Run docker container soroban-preview, that includes soroban cli, Rust and other tools [Token Playground](https://github.com/esteblock/token-playground/) uses 
+-  Run docker stellar/quickstart that provides a local  stellar node
 -  Create two stellar address accounts (isser and destination address)
 -  Configure setting.json    
 
@@ -14,52 +13,54 @@ Remember to **follow the code** in the [Token Playground's Repo](https://github.
 
 ### 1.- Create a common docker network (only once) 
 
+Create a common docker network will allow to the two docker containers that we will create in next steps communicate between each other.
+
+You can create common network by: 
+
 ```
 docker network create soroban-network
 ```
 
 ### 2.- Docker soroban-preview:
 
-Docker linux image that contains rust and soroban cli 0.6.0 in addition to a set of utilities to run scripts (curl, node, jq)
+Docker linux image that contains Rust and soroban cli 0.6.0 in addition to a set of utilities to run [Token Playground](https://github.com/esteblock/token-playground/) scripts (curl, node, jq)
 
-You can get docker image from [docker hub](https://hub.docker.com/u/esteblock) or build by running [build.sh](https://github.com/esteblock/soroban-preview-docker/blob/main/preview_7/build.sh)  
+You can get docker image from [docker hub](https://hub.docker.com/u/esteblock) or build it by running [build.sh](https://github.com/esteblock/soroban-preview-docker/blob/main/preview_7/build.sh)  
 
 Once you get the docker image you can run the docker command
 
-
-```docker run --rm -ti \
-  --platform linux/amd64 \
-  --name stellar \
-  --network soroban-network \
-  -p 8000:8000 \
-  stellar/quickstart:soroban-dev@sha256:81c23da078c90d0ba220f8fc93414d0ea44608adc616988930529c58df278739 \
-  standalone \
-  --enable-soroban-rpc \
-  --protocol-version 20 
+```
+currentDir=$(pwd)
+docker run --volume  ${currentDir}:/workspace \
+           --name soroban-preview-7 \
+           --interactive \
+           --tty \
+           -p 8001:8000 \
+           --detach \
+           --ipc=host \
+           --network soroban-network \
+           soroban-preview:7
 ```
 
-or the script [quickstart.sh](https://github.com/esteblock/token-playground/blob/main/quickstart.sh) from the token playground repository.
-
+or by using the script [quickstart.sh](https://github.com/esteblock/token-playground/blob/main/quickstart.sh) from the token playground repository.
 
 
 ### 3.- Docker stellar/quickstart
 
-
-Stellar provides a docker image that contains stellar node including  stellar core programm and horizon server. You can initialize the node as standalone (transactions will not be synced to the network) and futurenet (transactions will be synced to futurenet network).
-
+Stellar provides a docker image that contains stellar node including  stellar core programm and horizon server. You can initialize the node as standalone (transactions will not be synced to the network) or futurenet (transactions will be synced to futurenet network).
 
 You can get and run stellar/quickstart by executing 
 
 [quickstart.sh token playgroud](https://github.com/esteblock/token-playground/blob/main/quickstart.sh)
 
- Running succesfully  quickstar.sh wil launch the two docker containers, stellar node and  soroban preview
+Running succesfully quickstart.sh will launch the two docker containers, local stellar node and  soroban preview.
 
 
 ### 4.- Create two addres accounts 
 
-You will need two stellar accounts to use token playground. The first one will be the issuer address, responsible of creating and issuing Stellar Assets,  the second one wiil be the destination address that has to create a trustline to the asset and  recieve amounts after issuing and mint. 
+You will need two stellar accounts to use token playground. The first one will be the issuer address, responsible of creating and issuing Stellar Assets,  the second one will be the destination address that has to create a trustline to the asset and  recieve amounts after issuing and mint. 
 
-You can use [stellar laboratory](https://laboratory.stellar.org/#account-creator?network=futurenet) to create the accounts.  Stellar account need to be funded wit at least 1 xlm  before exists. Stellar provide the utlity friendbot that fund test networks like futurenet. 
+You can use [stellar laboratory](https://laboratory.stellar.org/#account-creator?network=futurenet) to create the accounts.  Stellar account need to be funded with at least 1 xlm  before exists. Stellar provide the utlity friendbot that fund test networks like futurenet. 
 
 Here is an example about how to fund and make account exist:
 
@@ -67,13 +68,14 @@ Here is an example about how to fund and make account exist:
 TOKEN_ADMIN_ADDRESS="GCUA5RTRR4N4ILSMORG3XFXJZB6KRG4QB22Z45BUNO5LIBCOYYPZ6TPZ"
 FRIENDBOT_URL="http://stellar:8000/soroban/rpc/friendbot"
 
-#in case you're using futurenet  the friend bot  url should be http://stellar:8000/soroban/rpc/friendbot 
-
 curl --silent -X POST "FRIENDBOT_URL?addr=TOKEN_ADMIN_ADDRESS" >/dev/null
 
 ```
 
-if you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-7` docker containter
+Note that this sample code requires  docker exec soroban-preview-7  to execute it and to have  followed previous steps. Sample code above uses ```http://stellar:8000``` as friendbot url  because the  two docker container are sharing the network.  In case you have not created docker common network use  ```http://localhost:8000``` if your friendbot  request is to  stellar/quickstart or ```https://friendbot-futurenet.stellar.org/```  in case your request  is to futurenet directly.  
+
+
+if you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-7` docker container-
 
 ```
 docker exec soroban-preview-7 node src/friendbot.js
@@ -104,4 +106,3 @@ The file [settings.json](https://github.com/esteblock/token-playground/blob/main
 ___
 
 This Playgound has been developed by [@esteblock](https://github.com/esteblock/) in collaboration with [@marcos74](https://github.com/marcos74) from [@Dogstarcoin](https://github.com/Dogstarcoin)
-
