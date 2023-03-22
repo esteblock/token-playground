@@ -17,7 +17,7 @@ Remember to **follow the code** in the [Token Playground's Repo](https://github.
 git clone https://github.com/esteblock/token-playground/
 ```
 
-# 1. GET INFO ABOUT TOKEN FROM STELLAR 
+# 1. Get info about token from stellar  
 
 
 Asset info is stored in stellar ledgers. In order to simplify the access to the  ata,  stellar provides Horizon api with several endpoints. Next the url  endpoint with the query string to request asset info. 
@@ -73,7 +73,7 @@ In the response you'll find relevant info  about the asset as:
 
 
 
-# 2. USER OUR CODE 
+# 2. Use our code
 
 
 If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/getInfo.js](https://github.com/esteblock/token-playground/blob/main/src/getInfo.js) script that can be called by the `soroban-preview-7` docker container:
