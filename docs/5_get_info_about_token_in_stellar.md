@@ -7,6 +7,7 @@
 
 # Introduction:
 
+
 In this chapter we will  show you how to get info about the asset we have created and minted in the previous [one](4_issue_and_mint_asset_in_stellar.md). 
 
 Horizon provide an HTTP api to request data in the stellar network, providing  several endpoints.  One of them allow to request for asset info. Our code uses stellar sdk that encapsulates request to endpoint.
@@ -20,7 +21,7 @@ git clone https://github.com/esteblock/token-playground/
 # 1. Get info about token from stellar  
 
 
-Asset info is stored in stellar ledgers. In order to simplify the access to the  ata,  stellar provides Horizon api with several endpoints. Next the url  endpoint with the query string to request asset info. 
+Asset info is stored in stellar ledgers. In order to facitilate the access to the data,  stellar provides Horizon api with several endpoints. Next the url endpoint with the query string to request asset info. 
 
 https://horizon-testnet.stellar.org/assets?asset_code=ASSET_CODE&asset_issuer=ISSUER_ADDRESS
 
