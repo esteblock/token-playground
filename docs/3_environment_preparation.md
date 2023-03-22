@@ -136,7 +136,7 @@ TOKEN_ADMIN_ADDRESS="GCUA5RTRR4N4ILSMORG3XFXJZB6KRG4QB22Z45BUNO5LIBCOYYPZ6TPZ"
 FRIENDBOT_URL="http://localhost:8000/soroban/rpc/friendbot"
 curl --silent -X POST "FRIENDBOT_URL?addr=TOKEN_ADMIN_ADDRESS" >/dev/null
 ```
-If you want to call this from the `soroban-preview-7` docker container, be sure to change `http://localhost:8000` to `http://stellar:8000` because the  two docker container are using the same docker network and can be called by their name.  You can also use ```https://friendbot-futurenet.stellar.org/```  in case your request  is to the futurenet directly.  
+If you want to call this from the `soroban-preview-7` docker container, be sure to change `http://localhost:8000` to `http://stellar:8000` because the  two docker container are using the same docker network and can be called by their name.  You can also use `https://friendbot-futurenet.stellar.org/` in case your request  is to the futurenet directly.  
 
 ### 2.4. Use our code
 
@@ -157,8 +157,7 @@ await fetch( settings.horizonUrl+'/friendbot?addr='+settings.receiverPublic, {me
 ```
 
 # 3. Next
-In the [next chapter](4_issue_and_mint_asset_in_stellar.md)
- we will use this docker containers in orde to issue and mint a new (classic) Stellar Asset
+In the [next chapter](4_issue_and_mint_asset_in_stellar.md) we will use this docker containers in order to issue and mint a new (classic) Stellar Asset
 
 ___
 
