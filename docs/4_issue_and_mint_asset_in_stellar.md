@@ -8,7 +8,7 @@
 
 In this chapter we will  show you how to issue (create) a Stellar Asset (classic) and mint the the first supply of it. 
 
-To issue and mint an asset you need to build and submit two transactions. The first one will create a trustline for the asset between receiver and issuer address, this is a requirement. The second one  will send a payment of the asset  from issuer to receiver that effectivaly will create and mint the asset by sending it.   
+To issue and mint an asset you need to build and submit two transactions. The first one will to create a **trustline** for the asset between receiver and issuer address, this is a requirement. The second one **will send a payment** of the asset  from issuer to receiver that effectivaly **will create and mint the asset by sending it+*.   
 
 Remember to **follow the code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/). Also, you can clone the code by doing
 
@@ -19,13 +19,15 @@ git clone https://github.com/esteblock/token-playground/
 
 # 1.- Trust Operation 
 
-Previous to the creation of the asset, the destination address is required to submit a transaction to the network that creates a trustline with the asset.  In stellar is a requirement for any address to establish a trustline previous to  receive an asset that has not been received before.
+Previous to the creation of the asset, the destination address is required to submit a transaction to the network that creates a trustline with the asset.  In Stellar, this is a requirement to establish a trustline before receiving an asset that has not been received before.
+
+Read more about trustlines in the [Stellar's Trustlines section](https://developers.stellar.org/docs/fundamentals-and-concepts/stellar-data-structures/accounts#trustlines)
 
 The transaction that will creates the trustline need to contains an operation `Change Trust` where the fields  `asset` (asset code and issuer address) is required and the field  `trust limit` is optional.  
 
-you can check how building  and submit trust operation  [here](https://github.com/esteblock/token-playground/blob/main/src/trustAsset.js)
+You can check the full code of this playground, on how to build build and submit this trust operation [in our `trustAsset.js` script](https://github.com/esteblock/token-playground/blob/main/src/trustAsset.js)
 
-Here a fragment of this code:
+Here we show you a fragment of this code, using the javascript `StellarSdk` package:
 
 ```javascript
 
@@ -50,41 +52,44 @@ Here a fragment of this code:
     var submitResult = server.submitTransaction(transaction);
     console.log("trustAsset: Tx is being submitted, result: ", submitResult)
     return submitResult
-
 ```
 
 # 2.  Issue Asset 
 
 
-Once the destination address trust the asset,  issuer can create it. Issue the asset consist in building  and submit a transaction that contains a payment operation. Payment operation requires set up asset code, issuer adress and amount. This payment will create the token and  mint the amount user send to destination address. 
+Once the destination address trust the asset,  the issuer can create it. Issuing the asset consist in building  and submit a transaction that contains a payment operation. The payment operation requires to set up the `asset code`,the `issuer adress` and the `amount`. This payment will create the token and  mint the amount that the issuer sends to destination address. 
 
-You can check how building and submit transaction with a payment  operation  [here](https://github.com/esteblock/token-playground/blob/main/src/trustAsset.js)
+
+You can check the full code of this playground, on how to build build and submit the transaction with a payment  operation [in our `sendPaymentFromIssuer.js` script](https://github.com/esteblock/token-playground/blob/main/src/sendPaymentFromIssuer.js)
+
+Here we show you a fragment of this code, using the javascript `StellarSdk` package:
 
 Here a fragment of this code:
 
 ```javascript
-  var transaction = new StellarSdk.TransactionBuilder(issuer, {
-      fee: 100,
-      networkPassphrase: networkPassphrase,
-    })
-      .addOperation(
-        StellarSdk.Operation.payment({
-          destination: destination,
-          asset: asset,
-          amount: amount,
-        }),
-      )
-      // setTimeout is required for a transaction
-      .setTimeout(100)
-      .build();
-    console.log("sendPaymentFromIssuer: Signing the transaction")
-    transaction.sign(issuingKeys);
-    var submitResult = server.submitTransaction(transaction);
+var transaction = new StellarSdk.TransactionBuilder(issuer, {
+    fee: 100,
+    networkPassphrase: networkPassphrase,
+  })
+    .addOperation(
+      StellarSdk.Operation.payment({
+        destination: destination,
+        asset: asset,
+        amount: amount,
+      }),
+    )
+    // setTimeout is required for a transaction
+    .setTimeout(100)
+    .build();
+  console.log("sendPaymentFromIssuer: Signing the transaction")
+  transaction.sign(issuingKeys);
+  var submitResult = server.submitTransaction(transaction);
+  console.log("sendPaymentFromIssuer: Tx is being submitted, result: ", submitResult)
+  return submitResult
 
 ```
 
-In case issuer addres is not locked, new amount of the asset can be minted. To mint the asset is  as easy as create  a new transanction with  payment operation. The amount field of the operation will mint the asset incrementing the total supply of the asset.
-
+In the case the issuer addres is not locked, new amount of the asset can be minted. To mint the asset is as easy as create a new transanction with a payment operation. This operation will mint the asset incrementing the total supply of the asset.
 
 # 3. Use our code
 
@@ -96,13 +101,13 @@ You can run it by:
   docker exec soroban-preview-7 node src/issueAsset.js
 ```
 
-Also you can run it with a different asset code than the one in settings.json by passing it as argument. 
+Also you can run it with a different asset code than the one in settings.json by passing it the `ASSET_CODE` argument. 
 
 ```bash
   docker exec soroban-preview-7 node src/issueAsset.js ASSET_CODE
 ```
 
-This script will send two transactions to stellar futurenet or standalone, depend on your selection when launching [quicktart.sh](https://github.com/esteblock/token-playground/blob/main/quickstart.sh). 
+This script will send two transactions to the stellar futurenet or standalone chains, depend on your selection when launching [quicktart.sh](https://github.com/esteblock/token-playground/blob/main/quickstart.sh). 
 
 
 This script will take the asset, issuer adress, receiver address, amount, network passphrase and limit amount allowed to be received by receiver address from the [seetings.json](https://github.com/esteblock/token-playground/blob/main/settings.json) file. 
@@ -122,7 +127,7 @@ var receivingKeys = StellarSdk.Keypair.fromSecret(settings.receiverSecret);
 ...
 
 ```
-As we have indicated above you can pass asset code as argument when invoking script. 
+As we have showed above you can pass the asset code as an argument when invoking the script. 
 
 # 4. Next
 
