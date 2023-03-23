@@ -8,9 +8,9 @@
 # Introduction:
 
 
-In this chapter we will  show you how to get info about the asset we have created and minted in the previous [one](4_issue_and_mint_asset_in_stellar.md). 
+In this chapter we will  show you how to get info about the asset that we have created and minted in the [previous chapter](4_issue_and_mint_asset_in_stellar.md). 
 
-Horizon provide an HTTP api to request data in the stellar network, providing  several endpoints.  One of them allow to request for asset info. Our code uses stellar sdk that encapsulates request to endpoint.
+The Horizon sever provides an HTTP API to request data in the stellar network, providing  several endpoints.  One of them allow us to request assets info. Our code uses the Stellar SDK sends request to these endpoints.
 
 Remember to **follow the code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/). Also, you can clone the code by doing
 
@@ -18,16 +18,17 @@ Remember to **follow the code** in the [Token Playground's Repo](https://github.
 git clone https://github.com/esteblock/token-playground/
 ```
 
-# 1. Get info about token from stellar  
+# 1. Get info about a token from stellar  
 
+Asset information are stored in stellar ledgers. In order to facitilate the access to the data, stellar provides the Horizon API with several endpoints. Here we show you the endpoint URL with the query string to request an asset info. 
 
-Asset info is stored in stellar ledgers. In order to facitilate the access to the data,  stellar provides Horizon api with several endpoints. Next the url endpoint with the query string to request asset info. 
-
+```
 https://horizon-testnet.stellar.org/assets?asset_code=ASSET_CODE&asset_issuer=ISSUER_ADDRESS
+```
 
-The query string includes two optional parameters, one is the asset_code and one is the asset_issuer. Request the endpoint with the two parameter will return the info of a single asset as reponse. 
+The query string includes two parameters, one is the `asset_code` and one is the `asset_issuer`. This request will return the info of a single asset as reponse. 
 
-Next you'll find the response you get from the endpoint or [getInfo.js](https://github.com/esteblock/token-playground/blob/main/src/getInfo.js) script:
+An answer looks like this:
 
 ```json
 Futurenet Classic Info: 
@@ -85,15 +86,15 @@ You can run it by:
 docker exec soroban-preview-7 node src/getInfo.js
 ```
 
-Also you can run it with a different asset code than the one in settings.json by passing it as argument. 
+Also you can run it with a different asset code than the one in settings.json by passing it as argument:
 
 ```bash
  docker exec soroban-preview-7 node src/getInfo.js ASSET_CODE
 ```
 
-This script uses stellar sdk to request to horizon api about asset info. [Stellar sdk](https://github.com/stellar/js-stellar-sdk) is a javascript library from stellar that offers a layer API for Horizon endpoints and facilities for building, signing  and submiting transactions. 
+This script uses the stellar sdk to request to horizon api about asset info. [Stellar sdk](https://github.com/stellar/js-stellar-sdk) is a javascript library from stellar that offers a layer API for Horizon endpoints and facilities building, signing and submiting transactions. 
 
-Here a fragmet of the code that exemplifies how stellar sdk access to horizon asset endpoint. 
+Here, you'll find a fragmet of the code that exemplifies how stellar sdk access to horizon asset endpoint. 
 
 ```javascript
 
@@ -110,7 +111,7 @@ console.log((await server.assets().forCode(asset_code).call()).records[0])
 
 # 3. Next
 
-In the [next chapter](6_wrap_a_token_from_classic_to_soroban.md) we will use this docker containers in order to wrap the token from stellar to a Soroban smart contract. 
+In the [next chapter](6_wrap_a_token_from_classic_to_soroban.md) we will wrap this asset from the classic Stellar blockchain into a Soroban smart contract. Are you ready?! 
 
 ___
 
