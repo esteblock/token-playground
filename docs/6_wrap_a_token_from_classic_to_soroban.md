@@ -13,7 +13,7 @@ In this chapter we will **wrap** that **Stellar Asset** into a **Stellar Asset C
 
 Before using the `soroban-cli`, we need to configure it by telling which account will be executing and signing the transactions. In order to do this, we will call the `soroban config identity` command and we will provide it with the account's private key.
 
-Here we will suppose that our user is the token admin of the asset, so we will call it `token-admin`, but you can choose another name for this
+Here we will suppose that our user is the token admin of the asset, so we will call it `token-admin`, but you can choose another name for this.
 
 1. Setup your `.soroban/identities` folder
 
@@ -67,7 +67,7 @@ This command will return the `id` of the SAC smart contract that will manage the
 success
 86b9acd9860d105c2b5e6b688ab0fce5f9c45516dcc704f9427936c79384e72f
 ``` 
-This  correspond to the contract id, a 32-byte byte arrays, represented by BytesN<32> 
+This correspond to the contract id, a 32-byte byte arrays, represented by BytesN<32> 
 
 ## 4. Save the contract ID for further use!
 
@@ -86,7 +86,6 @@ What happens if you did not saved the contract id? Don't worry, in [Chapter 9](9
 Here, you'll find a fragmet of the code that includes all steps and exemplifies how to wrap a Stellar Asset:
 
 ```bash
-
 NETWORK="standalone"
 ASSET_CODE="MY_ASSET"
 TOKEN_ADMIN_ADDRESS="GCUA5RTRR4N4ILSMORG3XFXJZB6KRG4QB22Z45BUNO5LIBCOYYPZ6TPZ"
@@ -99,12 +98,12 @@ mkdir -p .soroban
 echo -n "$TOKEN_ID" > .soroban/token_id
 ```
 Another example, without the usage of `identity` can be:
+
 ```bash
 soroban lab token wrap --asset="AstroDollar:GAM5XOXRUWPMKENBGOEAKMLRQ4ENHLHDSU2L2J7TVJ34ZI7S6PHMYIGI" --secret-key SAHC723FQTC3MARBNUZLUFEIYI62VQDQH7FHLD2FGV6GROQQ7ULMHQGH --rpc-url https://horizon-futurenet.stellar.cash:443/soroban/rpc --network-passphrase 'Test SDF Future Network ; October 2022'
-
 ```
-## 5. Use our code
 
+## 5. Use our code
 
 If you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-7` docker containter
 
@@ -122,4 +121,4 @@ In the next two chapters we will mint tokens inside Soroban from an already wrap
 
 ___
 
-This Playgound has been developed by [@esteblock](https://github.com/esteblock/) in collaboration with [@marcos74](https://github.com/marcos74) from [@Dogstarcoin](https://github.com/Dogstarcoin)
+This Playground has been developed by [@esteblock](https://github.com/esteblock/) in collaboration with [@marcos74](https://github.com/marcos74) from [@Dogstarcoin](https://github.com/Dogstarcoin)
