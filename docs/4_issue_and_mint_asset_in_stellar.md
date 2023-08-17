@@ -93,18 +93,18 @@ In the case the issuer addres is not locked, new amount of the asset can be mint
 
 # 3. Use our code
 
-If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/issueAsset.js](https://github.com/esteblock/token-playground/blob/main/src/issueAsset.js) script that can be called by the `soroban-preview-7` docker container:
+If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/issueAsset.js](https://github.com/esteblock/token-playground/blob/main/src/issueAsset.js) script that can be called by the `soroban-preview-10` docker container:
 
 You can run it by:
 
 ```bash
-  docker exec soroban-preview-7 node src/issueAsset.js
+  docker exec soroban-preview-10 node src/issueAsset.js
 ```
 
 Also you can run it with a different asset code than the one in settings.json by passing it the `ASSET_CODE` argument. 
 
 ```bash
-  docker exec soroban-preview-7 node src/issueAsset.js ASSET_CODE
+  docker exec soroban-preview-10 node src/issueAsset.js ASSET_CODE
 ```
 
 This script will send two transactions to the stellar futurenet or standalone chains, depend on your selection when launching [quicktart.sh](https://github.com/esteblock/token-playground/blob/main/quickstart.sh). 

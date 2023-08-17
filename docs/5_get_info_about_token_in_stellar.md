@@ -78,18 +78,18 @@ In the response you'll find relevant info  about the asset as:
 # 2. Use our code
 
 
-If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/getInfo.js](https://github.com/esteblock/token-playground/blob/main/src/getInfo.js) script that can be called by the `soroban-preview-7` docker container:
+If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/getInfo.js](https://github.com/esteblock/token-playground/blob/main/src/getInfo.js) script that can be called by the `soroban-preview-10` docker container:
 
 You can run it by:
 
 ```
-docker exec soroban-preview-7 node src/getInfo.js
+docker exec soroban-preview-10 node src/getInfo.js
 ```
 
 Also you can run it with a different asset code than the one in settings.json by passing it as argument:
 
 ```bash
- docker exec soroban-preview-7 node src/getInfo.js ASSET_CODE
+ docker exec soroban-preview-10 node src/getInfo.js ASSET_CODE
 ```
 
 This script uses the stellar sdk to request to horizon api about asset info. [Stellar sdk](https://github.com/stellar/js-stellar-sdk) is a javascript library from stellar that offers a layer API for Horizon endpoints and facilities building, signing and submiting transactions. 

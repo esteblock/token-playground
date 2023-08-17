@@ -11,6 +11,10 @@ Remember to **follow the code** in the [Token Playground's Repo](https://github.
 ```bash
 git clone https://github.com/esteblock/token-playground/
 ```
+Also you'll need to install the node packages:
+```
+yarn
+```
 
 # 1. Configure Docker
 
@@ -27,7 +31,7 @@ Follow the instructions from the [Docker's web page](https://docs.docker.com/get
 
 ### 1.2. Create a common docker network (only once) 
 
-Create a common docker network will allow  the two docker containers that we will create in next steps communicate between each other.
+Establishing a shared Docker network will enable seamless communication between the two Docker containers that we are about to create in the following steps.
 
 Here we will name this network as `soroban-network`, but you can choose the name you want. You can create this network by: 
 
@@ -40,23 +44,23 @@ docker network create soroban-network
 
 The [soroban-preview docker images](https://github.com/esteblock/soroban-preview-docker) allow developers to work in different projects that use different [Soroban Preview Releases](https://soroban.stellar.org/docs/reference/releases) (with different versions of soroban-cli, rust and others). [Read more here](https://dev.to/esteblock/docker-images-for-soroban-preview-releases-240d)
  
-The soroban-preview docker images are hosted in [docker hub](https://hub.docker.com/r/esteblock/soroban-preview/tags). In this example we will use the Soroban Preview Release #7, hence we will use the `esteblock/soroban-preview:7` image. To run a container with this image, do:
+The soroban-preview docker images are hosted in [docker hub](https://hub.docker.com/r/esteblock/soroban-preview/tags). In this example we will use the Soroban Preview Release #10, hence we will use the `esteblock/soroban-preview:10` image. To run a container with this image, do:
 
 ```bash
 cd token-playground
 currentDir=$(pwd)
 docker run --volume  ${currentDir}:/workspace \
-           --name soroban-preview-7 \
+           --name soroban-preview-10 \
            --interactive \
            --tty \
            -p 8001:8000 \
            --detach \
            --ipc=host \
            --network soroban-network \
-           esteblock/soroban-preview:7
+           esteblock/soroban-preview:10
 ```
 
-Here we used the flag `--network soroban-network`, so any other container in the same network can call each other just using its name. In this case, this container's name is `soroban-preview-7`
+Here we used the flag `--network soroban-network`, so any other container in the same network can call each other just using its name. In this case, this container's name is `soroban-preview-10`
 
 ### 1.4.- Run a stellar/quickstart docker container
 
@@ -70,15 +74,15 @@ docker run --rm -ti \
   --name stellar \
   --network soroban-network \
   -p 8000:8000 \
-  stellar/quickstart:soroban-dev@sha256:81c23da078c90d0ba220f8fc93414d0ea44608adc616988930529c58df278739 \
+  stellar/quickstart:soroban-dev@sha256:8a99332f834ca82e3ac1418143736af59b5288e792d1c4278d6c547c6ed8da3b \
   standalone \
   --enable-soroban-rpc \
   --protocol-version 20 
 ```
 
-Here we are using the `stellar/quickstart:soroban-dev@sha256:81c23da078c90d0ba220f8fc93414d0ea44608adc616988930529c58df278739` beacuse this is the image used in the [Soroban Preview #7](https://soroban.stellar.org/docs/reference/releases), and we are using the same network with the flag `--network soroban-network`
+Here we are using the `stellar/quickstart:soroban-dev@sha256:8a99332f834ca82e3ac1418143736af59b5288e792d1c4278d6c547c6ed8da3b` beacuse this is the image used in the [Soroban Preview #10](https://soroban.stellar.org/docs/reference/releases), and we are using the same network with the flag `--network soroban-network`
 
-Then, if the `soroban-preview-7` containter want's to call the RPC of the `stellar` container, it can use the following RPC URL 
+Then, if the `soroban-preview-10` containter want's to call the RPC of the `stellar` container, it can use the following RPC URL 
 ```bash
 http://stellar:8000
 ``` 
@@ -136,14 +140,14 @@ TOKEN_ADMIN_ADDRESS="GCUA5RTRR4N4ILSMORG3XFXJZB6KRG4QB22Z45BUNO5LIBCOYYPZ6TPZ"
 FRIENDBOT_URL="http://localhost:8000/soroban/rpc/friendbot"
 curl --silent -X POST "FRIENDBOT_URL?addr=TOKEN_ADMIN_ADDRESS" >/dev/null
 ```
-If you want to call this from the `soroban-preview-7` docker container, be sure to change `http://localhost:8000` to `http://stellar:8000` because the  two docker container are using the same docker network and can be called by their name.  You can also use `https://friendbot-futurenet.stellar.org/` in case your request  is to the futurenet directly.  
+If you want to call this from the `soroban-preview-10` docker container, be sure to change `http://localhost:8000` to `http://stellar:8000` because the  two docker container are using the same docker network and can be called by their name.  You can also use `https://friendbot-futurenet.stellar.org/` in case your request  is to the futurenet directly.  
 
 ### 2.4. Use our code
 
-If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/friendbot.js](https://github.com/esteblock/token-playground/blob/main/src/friendbot.js) script that can be called by the `soroban-preview-7` docker container:
+If you want to use our [Token Playground's Repo](https://github.com/esteblock/token-playground/) **code**, we prepared the [src/friendbot.js](https://github.com/esteblock/token-playground/blob/main/src/friendbot.js) script that can be called by the `soroban-preview-10` docker container:
 
 ```bash
-docker exec soroban-preview-7 node src/friendbot.js
+docker exec soroban-preview-10 node src/friendbot.js
 ```
 
 This script will take the issuer and receiver addresses from the [seetings.json](https://github.com/esteblock/token-playground/blob/main/settings.json) file:
