@@ -105,12 +105,12 @@ soroban lab token wrap --asset="AstroDollar:GAM5XOXRUWPMKENBGOEAKMLRQ4ENHLHDSU2L
 
 ## 5. Use our code
 
-If you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-7` docker containter
+If you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-10` docker containter
 
 You can run it by: 
 
 ```bash
-docker exec soroban-preview-7 ./src/wrap.sh standalone using_docker
+docker exec soroban-preview-10 ./src/wrap.sh standalone using_docker
 ```
 
 Check all the code of our `wrap.sh` script [here](https://github.com/esteblock/token-playground/blob/main/src/wrap.sh)

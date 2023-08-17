@@ -2,11 +2,16 @@
 
 Soroban provides a mechanism to **wrap a (classic) Stellar asset in a smart contract** so that the token can be minted and transferred in Soroban. However, a lot of questions are arised...
 
-- How can developers **issue tokens** in Soroban, or **wrap an existing Stellar Classic Asset**?
-- Are this two chains **sharing the token balance** for an specific address?
-- Whan happens if the **issuer mints** tokens in Soroban after wrapping the asset?
-- Can the Smart Contract prevent Stellar Classic transactions of the Stellar Asset?
-- Can we enforce to some logic to be applied when they are transferred?
+Soroban offers a mechanism to **wrap a (classic) Stellar asset within a smart contract** enabling the token to be minted and exchanged within the Soroban framework. However, numerous questions have arisen...
+
+
+- How can developers **issue tokens** within Soroban or **wrap an existing Stellar Classic Asset?**
+- Do these two chains **share the token balance** for a specific address?
+- What occurs if the **issuer mints** tokens in Soroban subsequent to wrapping the asset?
+- Can the Smart Contract prevent Stellar Classic transactions involving the Stellar Asset?
+- Is it possible to impose specific logic during asset transfers?
+- How do we handle the native Stellar Lumens (XLM) token within Soroban?
+
 
 We have developed a **token playground** to explain how Stellar assets can be managed from a Soroban smart contract. Please check our Playground's Chapters:
 

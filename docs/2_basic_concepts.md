@@ -50,19 +50,19 @@ Next some resources about how uses tokens:
 
 [Token interface](https://soroban.stellar.org/docs/reference/interfaces/token-interface)
 
-[Token example](https://soroban.stellar.org/docs/how-to-guides/tokens)
+[Token example](https://soroban.stellar.org/docs/advanced-tutorials/tokens)
 
-[Stellar Asset Contract (SAC)](https://soroban.stellar.org/docs/how-to-guides/stellar-asset-contract)
+[Stellar Asset Contract (SAC)](https://soroban.stellar.org/docs/advanced-tutorials/stellar-asset-contract)
 
 
 ## 3.2 Issuing a SAC
 
-Anyone can deploy an instances of a Stellar Asset Contract. However, even that the initialization of the Stellar Asset Contracts happens automatically during the deployment, Asset Issuer will have the administrative permissions after the contract has been deployed.
+Any individual has the capability to deploy instances of a Stellar Asset Contract. Nevertheless, despite the automated initiation of the Stellar Asset Contracts during deployment, it is the Asset Issuer who retains administrative permissions subsequent to the contract's deployment.
 
 In order to get  SAC  deployed we will use a function included in the [soroban tools](https://github.com/stellar/soroban-tools) command line to wrap a stellar asset in a contract 
 
 ## Next
-In the next two chapters we will prepare our enviroment in order to isse (classic) Stellar Assets and mint them as Stellar Asset Contracts in Soroban. Remain alert!
+In the next two chapters we will prepare our enviroment in order to issue (classic) Stellar Assets and mint them as Stellar Asset Contracts in Soroban. Remain alert!
 
 
 ___
