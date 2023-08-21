@@ -10,28 +10,7 @@ What about when we want to use XLM inside a Soroban smart contract? How do we tr
  
 In this chapter we will start using XLM, asking for our balance the classic way (without Soroban). In the next chapter we will use Soroban!
 
-## 2. The native Stellar Lumens (XLM) contract address
-Soroban is great! And in order to use the native XLM tokens, we just need to treat it as another asset that behaves as an Stellar Asset Contract (SAC). It indeed has it's own contract address.
-
-This contract address is unique per network (standalone, futurenet... and later will be testnet and mainnet), so be sure to call it correctly.
-
-In order to get the XLM "contract address" you just need to type:
-
-```bash
-soroban lab token id --asset native --network standalone
-```
-and you'll get 
-```bash
-CDMLFMKMMD7MWZP3FKUBZPVHTUEDLSX4BYGYKH4GCESXYHS3IHQ4EIG4
-```
-
-and for the case of futurenet you'll get:
-```bash
-soroban lab token id --asset native --network futurenet
-CB64D3G7SM2RTH6JSGG34DDTFTQ5CFDKVDZJZSODMCX4NJ2HV2KN7OHT
-```
-
-## 3. Check your own balance using the classic way
+## 2. Check your XLM's own balance using the classic way
 Let's do our first experiment with the native XLM contract. We will create a new account, fund it with friendbot and check our balance in the classic way.
 
 0.- Run the `quickstart.sh` script and enter into the soroban-preview container. Read chapter 1 and 2.
@@ -77,7 +56,7 @@ Your XLM balance: 10000.0000000
 ```
 
 
-## 4. Use our code
+## 3. Use our code
 
 If you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-10` docker containter
 
