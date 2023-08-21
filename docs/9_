@@ -1,0 +1,79 @@
+
+## 2. The native Stellar Lumens (XLM) contract address
+Soroban is great! And in order to use the native XLM tokens, we just need to treat it as another asset that behaves as an Stellar Asset Contract (SAC). It indeed has it's own contract address.
+
+This contract address is unique per network (standalone, futurenet... and later will be testnet and mainnet), so be sure to call it correctly.
+
+In order to get the XLM "contract address" you just need to type:
+
+```bash
+soroban lab token id --asset native --network standalone
+```
+and you'll get 
+```bash
+CDMLFMKMMD7MWZP3FKUBZPVHTUEDLSX4BYGYKH4GCESXYHS3IHQ4EIG4
+```
+
+and for the case of futurenet you'll get:
+```bash
+soroban lab token id --asset native --network futurenet
+CB64D3G7SM2RTH6JSGG34DDTFTQ5CFDKVDZJZSODMCX4NJ2HV2KN7OHT
+```
+
+
+## 4. Check your balance using the stellar token's contract address.
+
+Now we will use the stellar token's contract address found in section 2, together with the token wasm after compiling the a token contract.
+
+1.- Get the token contract.
+Clone `https://github.com/stellar/soroban-examples/` and compile the token contract.
+In this repository you'll find already the token contract of the release [0.9.2](https://github.com/stellar/soroban-examples/releases/tag/v0.9.2) (complying with preview 10) 
+```bash
+cd src/contracts/token
+```
+
+2.- Compile the token
+```bash
+make build
+```
+This will create the compiled wasm in `/workspace/src/contracts/token/target/wasm32-unknown-unknown/release/soroban_token_contract.wasm`
+
+3.- Call the native token's contract as if it was a soroban_token_contract. In this example we are using `standalone`. We are calling this function: `fn balance(e: Env, id: Address) -> i128`
+
+
+```bash
+
+NETWORK="standalone"
+SOROBAN_RPC_HOST="http://stellar:8000"
+
+SOROBAN_RPC_URL="$SOROBAN_RPC_HOST/soroban/rpc"
+
+SOROBAN_NETWORK_PASSPHRASE="Standalone Network ; February 2017"
+
+soroban config network add "$NETWORK" \
+  --rpc-url "$SOROBAN_RPC_URL" \
+  --network-passphrase "$SOROBAN_NETWORK_PASSPHRASE"
+
+
+soroban config identity generate my-account
+
+ARGS="--network standalone --source-account my-account"
+TOKEN_ADDRESS=$(soroban lab token wrap $ARGS --asset native)
+
+TOKEN_WASM="/workspace/src/contracts/token/target/wasm32-unknown-unknown/release/soroban_token_contract.wasm"
+
+#TOKEN_ADDRESS="$(soroban lab token id --asset native --network standalone)"
+
+USER_ADDRESS="$(soroban config identity address my-account)"
+
+  soroban contract deploy $ARGS \
+    --wasm $TOKEN_WASM
+
+soroban contract invoke \
+  $ARGS \
+  --wasm $TOKEN_WASM \
+  --id "$TOKEN_ADDRESS" \
+  -- \
+  balance \
+  --id $USER_ADDRESS
+```
