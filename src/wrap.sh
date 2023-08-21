@@ -23,7 +23,7 @@ echo "We are using the following TOKEN_ADMIN_ADDRESS: $TOKEN_ADMIN_ADDRESS"
 ARGS="--network $NETWORK --source token-admin"
 
 echo Wrap the Stellar asset
-TOKEN_ADDRESS=$(soroban lab token wrap $ARGS --asset "$ASSET_CODE:$TOKEN_ADMIN_ADDRESS")
+TOKEN_ADDRESS=$(soroban lab token wrap $ARGS --asset native)
 echo "Token wrapped succesfully with TOKEN_ADDRESS: $TOKEN_ADDRESS"
 
 mkdir -p .soroban
