@@ -1,4 +1,4 @@
-# Token Playground Chapter 12 : Use the native Stellar Lumens (XLM) the classic way.
+# Token Playground Chapter 8 : Use the native Stellar Lumens (XLM) the classic way.
 
 
 - Check this guide in [https://token-playground.gitbook.io/](https://token-playground.gitbook.io/)
@@ -84,7 +84,7 @@ If you want to use our **code** in the [Token Playground's Repo](https://github.
 You can run it by: 
 
 ```bash
-bash src/chapter12/use_XLM_native.sh 
+bash src/chapter8/use_XLM_native.sh 
 ```
 
 Check all the code in the repo!
