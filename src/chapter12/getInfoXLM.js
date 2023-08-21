@@ -1,5 +1,5 @@
 import StellarSdk from "stellar-sdk";
-import settings from "../settings.json"  assert { type: "json" };
+import settings from "/workspace/settings.json"  assert { type: "json" };
 
 const args = process.argv;
 const user_address = args[2]

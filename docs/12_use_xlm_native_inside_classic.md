@@ -1,4 +1,4 @@
-# Token Playground Chapter 12 : Use the native Stellar Lumens (XLM) token inside Soroban
+# Token Playground Chapter 12 : Use the native Stellar Lumens (XLM) the classic way.
 
 
 - Check this guide in [https://token-playground.gitbook.io/](https://token-playground.gitbook.io/)
@@ -7,6 +7,8 @@
 
 ## 1. Introduction
 What about when we want to use XLM inside a Soroban smart contract? How do we trigger those transactions? Can we trigger transactions on behalf the user using the `require_auth` method?
+ 
+In this chapter we will start using XLM, asking for our balance the classic way (without Soroban). In the next chapter we will use Soroban!
 
 ## 2. The native Stellar Lumens (XLM) contract address
 Soroban is great! And in order to use the native XLM tokens, we just need to treat it as another asset that behaves as an Stellar Asset Contract (SAC). It indeed has it's own contract address.
@@ -29,8 +31,8 @@ soroban lab token id --asset native --network futurenet
 CB64D3G7SM2RTH6JSGG34DDTFTQ5CFDKVDZJZSODMCX4NJ2HV2KN7OHT
 ```
 
-## 3. Check your own balance
-Let's do our first experiment with the native XLM contract. We will create a new account, fund it with friendbot and check our balance both in the classic way and using the native token's contract address:
+## 3. Check your own balance using the classic way
+Let's do our first experiment with the native XLM contract. We will create a new account, fund it with friendbot and check our balance in the classic way.
 
 0.- Run the `quickstart.sh` script and enter into the soroban-preview container. Read chapter 1 and 2.
 ```bash
@@ -74,6 +76,25 @@ You'll get a result like this:
 Your XLM balance: 10000.0000000
 ```
 
-4.- Check your balance using the stellar token's contract address.
 
-Now we will use the stellar token's contract address found in section 2, together with the token wasm. 
+## 4. Use our code
+
+If you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-10` docker containter
+
+You can run it by: 
+
+```bash
+bash src/chapter12/use_XLM_native.sh 
+```
+
+Check all the code in the repo!
+
+
+# What is next?
+In this chapter we created a new Stellar account and we fund it with `10000` XLM and we managed to check it's balance in the classic way. In the next chapter we will check its balance using smart contracts in Soroban!
+
+Are you ready?
+
+___
+
+This Playground chapter has been written by [@esteblock](https://github.com/esteblock/)
