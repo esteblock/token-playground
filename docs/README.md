@@ -29,11 +29,13 @@ We have developed a **token playground** to explain how Stellar assets can be ma
 * [Chapter 6 : Wrap a token from Stellar Classic to Soroban.](6_wrap-a-token-from-classic-to-soroban.md)
 
 * [Chapter 7 : Mint from a wrapped token in Soroban.](7_mint_from_a_wrapped_token_in_soroban.md)
-
+<!-- 
 * [Chapter 8 : Get information from the wrapped token using the SAC contract.](8_get_info_from_wrapped_using_SAC.md)
 
 * [Chapter 9: Get all contract id's from an asset issuer](9_get_all_contract_ids_from_an_issuer.md)
 
 * [Chapter 10: Use all user balance inside Soroban (balance from Classic & Soroban)](10_use_all_user_balance_inside_soroban.md)
 
-* [Chapter 11: Call the token contract from another contract](11_call_the_token_contract_from_another_contract.md)
+* [Chapter 11: Call the token contract from another contract](11_call_the_token_contract_from_another_contract.md) -->
+
+* [8 : Use the native Stellar Lumens (XLM) the classic way.](8_use_xlm_native_inside_classic.md)
