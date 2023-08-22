@@ -193,41 +193,13 @@ pub trait Contract {
 }
 ```
 
-
-In order to call a function of the native asset smart contract inside **soroban-cli**, we need to provide the WASM. This will tell **soroban-cli** what are the name of the functions, name and number of variables and what does the function returns. 
-
-This is why that in order to interact with the native contract address, we need first a WASM of a token that implements the token interface.
-
-
-## 4. Get the WASM of a token contract.
-
-Now we will use the stellar token's contract address found in section 2, together with the token WASM after compiling the a token contract that implements the token interface.
-
-In this case we'll use the token contract available in `https://github.com/stellar/soroban-examples/`
-
-1. Get the token contract.
-Clone `https://github.com/stellar/soroban-examples/` and compile the token contract.
-In this repository you'll find already the token contract of the release [0.9.2](https://github.com/stellar/soroban-examples/releases/tag/v0.9.2) (complying with preview 10) 
-```bash
-cd src/contracts/token
-```
-
-2. Compile the token
-```bash
-make build
-```
-This will create the compiled wasm in `/workspace/src/contracts/token/target/wasm32-unknown-unknown/release/soroban_token_contract.wasm`
-
-
-## 5. Check your balance using  soroban-cli and the native token's contract address.
-We have the native token's address and the WASM of a token contract that implements the token interface. We just need to call it!
+## 4. Check your balance using  soroban-cli and the native token's contract address.
+We have the native token's address and the functions names we can call. We just need to call it!
 
 0.- Set your environment. 
 Here we suppose that you are using the `soroban-preview:10` image as it was explained in previous chapters:
 
 ```bash
-TOKEN_WASM="/workspace/src/contracts/token/target/wasm32-unknown-unknown/release/soroban_token_contract.wasm"
-
 TOKEN_ADDRESS="$(soroban lab token id --asset native --network standalone)"
 
 NETWORK="standalone"
@@ -256,7 +228,6 @@ curl  -X POST "$FRIENDBOT_URL?addr=$MY_ACCOUNT_ADDRESS"
 ```bash
 MY_BALANCE=$(soroban contract invoke \
   $ARGS \
-  --wasm $TOKEN_WASM \
   --id "$TOKEN_ADDRESS" \
   -- \
   balance \
@@ -274,7 +245,6 @@ my-account XLM balance: "99999952867"
 ```bash
 soroban contract invoke \
   $ARGS \
-  --wasm $TOKEN_WASM \
   --id "$TOKEN_ADDRESS" \
   -- \
   name

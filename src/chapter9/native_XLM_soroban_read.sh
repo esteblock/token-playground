@@ -34,17 +34,16 @@ TOKEN_ADDRESS="$(soroban lab token id --asset native --network standalone)"
 echo Native token address: $TOKEN_ADDRESS
 echo ---
 
-echo Building the token contract in order to have its WASM
-cd src/contracts/token
-make build
-TOKEN_WASM="/workspace/src/contracts/token/target/wasm32-unknown-unknown/release/soroban_token_contract.wasm"
-echo ---
+# echo Building the token contract in order to have its WASM
+# cd src/contracts/token
+# make build
+# TOKEN_WASM="/workspace/src/contracts/token/target/wasm32-unknown-unknown/release/soroban_token_contract.wasm"
+# echo ---
 
 
 echo Asking the native tokens contract what is my-account balance:
 MY_BALANCE=$(soroban contract invoke \
   $ARGS \
-  --wasm $TOKEN_WASM \
   --id "$TOKEN_ADDRESS" \
   -- \
   balance \
@@ -55,7 +54,6 @@ echo my-account XLM balance: $MY_BALANCE
 echo Asking the native tokens contract what is its name
 soroban contract invoke \
   $ARGS \
-  --wasm $TOKEN_WASM \
   --id "$TOKEN_ADDRESS" \
   -- \
   name
