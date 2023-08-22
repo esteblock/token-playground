@@ -41,7 +41,7 @@ TOKEN_WASM="/workspace/src/contracts/token/target/wasm32-unknown-unknown/release
 echo ---
 
 
-echo Asking the native token's contract what is my-account balance:
+echo Asking the native tokens contract what is my-account balance:
 MY_BALANCE=$(soroban contract invoke \
   $ARGS \
   --wasm $TOKEN_WASM \
@@ -50,4 +50,13 @@ MY_BALANCE=$(soroban contract invoke \
   balance \
   --id $MY_ACCOUNT_ADDRESS)
 echo my-account XLM balance: $MY_BALANCE
+
+
+echo Asking the native tokens contract what is its name
+soroban contract invoke \
+  $ARGS \
+  --wasm $TOKEN_WASM \
+  --id "$TOKEN_ADDRESS" \
+  -- \
+  name
 

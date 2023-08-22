@@ -25,3 +25,5 @@
 * [11: Call the token contract from another contract](11_call_the_token_contract_from_another_contract.md) -->
 
 * [8 : Use the native Stellar Lumens (XLM) the classic way.](8_use_xlm_native_inside_classic.md)
+
+* [9 : Read the native token (XLM) using soroban-cli.](9_read_native_soroban_cli.md)
