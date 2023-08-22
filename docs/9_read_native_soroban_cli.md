@@ -17,8 +17,37 @@ We will call this **the native token address**
 
 This contract address is unique per network (standalone, futurenet... as well as it will later be with testnet and mainnet), so be sure to call it correctly.
 
-1. Wrap the native token:
+1. Set up your environment:
+Basic setup
+```bash
+NETWORK="standalone"
+SOROBAN_RPC_HOST="http://stellar:8000"
+SOROBAN_RPC_URL="$SOROBAN_RPC_HOST/soroban/rpc"
+FRIENDBOT_URL="$SOROBAN_RPC_HOST/friendbot"
+SOROBAN_NETWORK_PASSPHRASE="Standalone Network ; February 2017"
+
+echo Adding network
+soroban config network add "$NETWORK" \
+  --rpc-url "$SOROBAN_RPC_URL" \
+  --network-passphrase "$SOROBAN_NETWORK_PASSPHRASE"
+```
+In order to wrap any token you'll need to spend some XLM. So you need to call this function from a funded account:
+
+Set your identity:
+```bash
+soroban config identity generate my-account
+MY_ACCOUNT_ADDRESS="$(soroban config identity address my-account)"
+
+echo Fund token-admin account from friendbot
+curl  -X POST "$FRIENDBOT_URL?addr=$MY_ACCOUNT_ADDRESS"
+
+ARGS="--network standalone --source-account my-account"
+```
+
+2. Wrap the native token:
 In order to get the XLM "contract address" you first need to "wrap" the native asset it into a token inside Soroban. This can be done only once, but you'll be needing to do it each time you open a new Standalone instance. 
+
+However, 
 
 If you use only Futurenet, you'll probably never need to do this:
 
@@ -28,7 +57,7 @@ echo Wrapped with address result: $TOKEN_ADDRESS
 ```
 This command will return the address, so no need for the next step. If this commands fails, this means that the token has already been wrapped before :)
 
-2. Get the native token's contracts address:
+3. Get the native token's contracts address:
 Once the native token has been wrapped, you can also it's address like this:
 
 ```bash
@@ -217,6 +246,8 @@ ARGS="--network standalone --source-account my-account"
 ```bash
 soroban config identity generate my-account
 MY_ACCOUNT_ADDRESS="$(soroban config identity address my-account)"
+ARGS="--network standalone --source-account my-account"
+
 ```
 
 2.- Fund this identity with the friendbot
