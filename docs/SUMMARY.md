@@ -27,3 +27,5 @@
 * [8 : Use the native Stellar Lumens (XLM) the classic way.](8_use_xlm_native_inside_classic.md)
 
 * [9 : Read the native token (XLM) using soroban-cli.](9_read_native_soroban_cli.md)
+
+* [10 : Write the native token (XLM) using soroban-cli.](10_native_XLM_transfer_transfer_from_soroban_cli.md)

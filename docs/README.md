@@ -42,3 +42,4 @@ We have developed a **token playground** to explain how Stellar assets can be ma
 
 * [Chapter 9 : Read the native token (XLM) using soroban-cli.](9_read_native_soroban_cli.md)
 
+* [Chapter 10 : Write the native token (XLM) using soroban-cli.](10_native_XLM_transfer_transfer_from_soroban_cli.md)

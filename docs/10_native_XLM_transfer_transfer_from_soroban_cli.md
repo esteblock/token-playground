@@ -117,8 +117,44 @@ soroban contract invoke   --network standalone --source-account my-account  --id
 
 The result should be:
 ```bash
+Approve 5 stroops from my-account. spender will be the spender identity
 
+Checkint the allowance of spender to spend from my-account
+"5"
+Checking recipient balance before doing the transfer_from
+"100000000005"
+Executing the transfer_from function. Spender is spending 5 stroops. Sending from my-account to recipient
+
+Checking new balance of recipient
+"100000000010"
 ```
+
+
+## 6. Use our code
+
+If you want to use our **code** in the [Token Playground's Repo](https://github.com/esteblock/token-playground/), you can just call our script with the `soroban-preview-10` docker containter
+
+You can run it by: 
+
+```bash
+bash src/chapter10/sending_native_XLM_soroban.sh 
+```
+
+Check all the code in the repo!
+
+
+# What is next?
+In this chapter we used the native token contract address in order to send some XLM using the `transfer`, `aprove` and `transfer_from` functions.
+
+In the next chapter we'll use the native token inside our own written smart contract!
+
+Are you ready?
+
+___
+
+This Playground chapter has been written by [@esteblock](https://github.com/esteblock/)
+
+
 
 
 
