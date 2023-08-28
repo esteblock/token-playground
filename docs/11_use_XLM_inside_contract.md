@@ -167,7 +167,7 @@ impl DonationsTrait for Donations {
 The first thing we allways do when we write an smart contract is to test it inside a `test.rs` file and we test it with `make test`. This will test the contract in a Soroban environment provided by `rs-soroban-sdk`. (the rust soroban-sdk)
 
 How can we tell the contract that we want to use the native XML?
-Well.... I an not pretty sure... and this is why I am opening this discussion on Discord: https://discord.com/channels/897514728459468821/1145462925109231726/1145462925109231726
+Well.... I an not pretty sure... and this is why I am opening this discussion on Discord (here)[https://discord.com/channels/897514728459468821/1145462925109231726/1145462925109231726]
 
 
 In the `test.rs` file you'll find 2 tests. One is for any type of tokens, and works perfect. The second test is ment to be only for the native XML token....
@@ -368,7 +368,7 @@ Checking final balance of donations contract ... should be 0 ...
 ```
 
 
-Why is the first donation failing? I don't know yet. Opened Discussion in Discord: https://discord.com/channels/897514728459468821/1145688416432963705/1145688416432963705
+Why is the first donation failing? I don't know yet. Opened Discussion in Discord (here)[https://discord.com/channels/897514728459468821/1145688416432963705/1145688416432963705]
 
 ___
 
