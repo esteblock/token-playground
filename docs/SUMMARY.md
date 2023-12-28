@@ -31,3 +31,7 @@
 * [10 : Write the native token (XLM) using soroban-cli.](10_native_XLM_transfer_transfer_from_soroban_cli.md)
 
 * [11 : Use the native token (XLM) inside a smart contract.](11_use_XLM_inside_contract.md)
+
+* [12 : Identify a Stellar Classic Asset using stellar-sdk.](12_identify_classic_using_stellar_sdk.md)
+
+* [13 : Wrap an asset using stellar-sdk.](13_wrap_classic_using_stellar_sdk.md)
