@@ -1,4 +1,4 @@
-import StellarSdk from "stellar-sdk";
+import * as StellarSdk from "stellar-sdk";
 
 import { sendPaymentFromIssuer } from "./sendPaymentFromIssuer.js"
 import { trustAsset } from "./trustAsset.js";
@@ -8,7 +8,7 @@ const args = process.argv;
 const asset_code = args[2] || settings.assetCode;
 console.log("Using asset_code: ", asset_code)
 
-var server = new StellarSdk.Server(settings.horizonUrl, {allowHttp: true});
+var server = new StellarSdk.Horizon.Server(settings.horizonUrl, {allowHttp: true});
 var networkPassphrase = settings.networkPassphrase
 
 // Keys for accounts to issue and receive the new asset
@@ -18,6 +18,7 @@ var receivingKeys = StellarSdk.Keypair.fromSecret(settings.receiverSecret);
 
 // Create an object to represent the new asset
 var asset = new StellarSdk.Asset(asset_code, issuingKeys.publicKey());
+console.log("🚀 ~ file: issueAsset.js:21 ~ asset:", asset)
 
 try {
   // First, the receiving account must trust the asset
@@ -52,3 +53,8 @@ catch(error){
   console.error("Error! while sending payment from issuer: ", error)
 }
 
+
+console.log("---")
+console.log("---")
+console.log("---")
+console.log("--- ASSET ISSUED: ", asset)
