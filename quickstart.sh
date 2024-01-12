@@ -29,6 +29,9 @@ shift
 echo "1. Creating docker soroban network"
 (docker network inspect soroban-network -f '{{.Id}}' 2>/dev/null) \
   || docker network create soroban-network
+echo "  "
+echo "  "
+echo "  "
 
 
 echo "2. Running a soroban-precview docker container"
@@ -51,6 +54,23 @@ docker run -dti \
   --ipc=host \
   --network soroban-network \
   esteblock/soroban-preview:${previewVersion}
+echo "  "
+echo "  "
+echo "  "
+
+
+echo "3. Running a soroban-precview docker container"
+
+echo "Searching for a previous stellar docker container"
+containerID=$(docker ps --filter=`name=stellar` --all --quiet)
+if [[ ${containerID} ]]; then
+    echo "Start removing stellar  container."
+    docker rm --force stellar
+    echo "Finished removing stellar container."
+else
+    echo "No previous stellar container was found"
+fi
+
 
 # Run the stellar quickstart image
 docker run --rm -ti \
